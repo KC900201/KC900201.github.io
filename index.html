@@ -4,12 +4,463 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Github Portfolio</title>
+  <title>KC900201 - System Engineer & Web Developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .bio {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.95);
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    }
+
+    .section h2 {
+      color: #333;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 10px;
+      border-left: 4px solid #667eea;
+    }
+
+    .skill-category h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #667eea;
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid #667eea;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-card h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .project-card p {
+      color: #666;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+      background: #e9ecef;
+      color: #495057;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+    }
+
+    .project-link {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: #5a6fd8;
+      text-decoration: underline;
+    }
+
+    .achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .achievement {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Hello, World!</h1>
-  <p>Welcome to my GitHub portfolio page.</p>
+  <div class="container">
+    <header>
+      <img src="https://avatars.githubusercontent.com/u/46585072?s=150&v=4" alt="KC900201 Profile" class="profile-img">
+      <h1>KC900201</h1>
+      <p class="subtitle">System Engineer & Self-Learned Web Developer</p>
+      <p class="bio">
+        Currently learning various programming languages (JavaScript, TypeScript, Rust, Vue.js) for self-development.
+        Based in Tokyo, passionate about creating innovative solutions and exploring new technologies.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/KC900201" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/kwongcheongng" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com/Ketchup0201" target="_blank">Twitter</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>📊 GitHub Stats</h2>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">41</span>
+          <span>Repositories</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">6</span>
+          <span>Followers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">13</span>
+          <span>Following</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span>Years Coding</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🛠️ Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">Vite</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Data Science & ML</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Jupyter Notebook</span>
+            <span class="skill-tag">Data Analysis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Currently Learning</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Advanced Vue.js</span>
+            <span class="skill-tag">System Engineering</span>
+            <span class="skill-tag">DevOps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🚀 Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Audit Log API</h3>
+          <p>A mock audit log API built with FastAPI, demonstrating backend development skills and API design
+            principles.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">API Development</span>
+          </div>
+          <a href="https://github.com/KC900201/audit_log_api" class="project-link" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>React Food Order App</h3>
+          <p>A mock food delivery application built with React.js and TypeScript, featuring modern UI/UX design and
+            state management.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Frontend</span>
+          </div>
+          <a href="https://github.com/KC900201/reactjs_food_order_app" class="project-link" target="_blank">View Project
+            →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Frontend Mentor Challenges</h3>
+          <p>Collection of frontend challenges showcasing responsive design, modern CSS techniques, and JavaScript
+            functionality.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Responsive Design</span>
+          </div>
+          <a href="https://github.com/KC900201/front_end_mentor_age_calculator_app" class="project-link"
+            target="_blank">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>TRIP - Traffic Risk Prediction</h3>
+          <p>Research project implementing GAN-based approach for traffic risk information provision network redesign.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">GAN</span>
+            <span class="tech-tag">Research</span>
+          </div>
+          <a href="https://github.com/KC900201/TRIPv2" class="project-link" target="_blank">View Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Vite React TypeScript Todoist Clone</h3>
+          <p>A task management application clone built with modern React setup using Vite, TypeScript, and contemporary
+            styling.</p>
+          <div class="project-tech">
+            <span class="tech-tag">React.js</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">CSS</span>
+          </div>
+          <a href="https://github.com/KC900201/vite_react_ts_todoist_clone" class="project-link" target="_blank">View
+            Project →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>TensorFlow Audio Transfer</h3>
+          <p>Simple web application demonstrating audio processing and transfer learning using TensorFlow.js in the
+            browser.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">TensorFlow.js</span>
+            <span class="tech-tag">Audio Processing</span>
+            <span class="tech-tag">ML</span>
+          </div>
+          <a href="https://github.com/KC900201/tensorflow_audio_transfer_simple" class="project-link"
+            target="_blank">View Project →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🏆 GitHub Achievements</h2>
+      <div class="achievements">
+        <div class="achievement">🎯 YOLO</div>
+        <div class="achievement">👥 Pair Extraordinaire</div>
+        <div class="achievement">⚡ Quickdraw</div>
+        <div class="achievement">🦈 Pull Shark x2</div>
+        <div class="achievement">🧊 Arctic Code Vault Contributor</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💼 Professional Focus</h2>
+      <p>
+        As a system engineer transitioning into web development, I bring a unique perspective that combines
+        infrastructure knowledge with modern web technologies. My journey spans from system engineering
+        fundamentals to cutting-edge frontend frameworks and machine learning applications.
+      </p>
+      <br>
+      <p>
+        Currently expanding my expertise in Rust for systems programming while deepening my knowledge
+        of Vue.js for frontend development. I'm passionate about creating efficient, scalable solutions
+        that bridge the gap between system-level thinking and user-facing applications.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 KC900201. Built with passion and hosted on GitHub Pages.</p>
+      <p>💭 I may be slow to respond, but I'm always coding something new!</p>
+    </footer>
+  </div>
 </body>
 
 </html>
